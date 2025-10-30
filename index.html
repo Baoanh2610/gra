@@ -205,7 +205,7 @@
             flex: 1;
             min-width: 300px;
             padding: 20px;
-            display: flex;
+            display:  flex;
             justify-content: center;
             align-items: center;
         }
@@ -638,6 +638,20 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
             position: relative;
             height: 250px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .map-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+        }
+        
+        .map-container a {
+            display: block;
+            height: 100%;
+            text-decoration: none;
+            color: inherit;
         }
         
         .map-placeholder {
@@ -649,6 +663,11 @@
             align-items: center;
             color: var(--white);
             font-size: 1.2rem;
+            transition: background 0.3s ease;
+        }
+        
+        .map-placeholder:hover {
+            background: linear-gradient(135deg, #764ba2, #667eea);
         }
         
         .badge {
@@ -909,12 +928,14 @@
                 </div>
             </div>
             
-            <!-- Thêm bản đồ -->
+            <!-- Bản đồ với link Google Maps -->
             <div class="map-container">
-                <div class="map-placeholder">
-                    <i class="fas fa-map-marked-alt" style="margin-right: 10px;"></i>
-                    Bản đồ đến Trường Đại học Công nghệ Sài Gòn
-                </div>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Tr%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+C%C3%B4ng+ngh%E1%BB%87+S%C3%A0i+G%C3%B2n%2C+80+Cao+L%E1%BB%97%2C+ph%C6%B0%E1%BB%9Dng+4%2C+qu%E1%BA%ADn+8%2C+H%E1%BB%93+Ch%C3%AD+Minh%2C+Vi%E1%BB%87t+Nam&travelmode=driving" target="_blank" rel="noopener noreferrer">
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt" style="margin-right: 10px;"></i>
+                        Bản đồ đến Trường Đại học Công nghệ Sài Gòn
+                    </div>
+                </a>
             </div>
             
             <div class="event-details">
