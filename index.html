@@ -13,9 +13,23 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #f093fb;
+            --danger-color: #f5576c;
+            --success-color: #4facfe;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #fff;
+            --card-bg: rgba(255, 255, 255, 0.98);
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            --gradient-secondary: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+        }
+        
         body {
             background: #0a0e27;
-            color: #333;
+            color: var(--text-dark);
             line-height: 1.6;
             min-height: 100vh;
             display: flex;
@@ -33,7 +47,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background: var(--gradient-primary);
             z-index: 0;
         }
         
@@ -94,7 +108,7 @@
         .banner-text {
             writing-mode: vertical-rl;
             text-orientation: mixed;
-            color: white;
+            color: var(--white);
             font-size: 2rem;
             font-weight: 900;
             text-align: center;
@@ -104,14 +118,14 @@
         }
         
         .banner-icon {
-            color: white;
+            color: var(--white);
             font-size: 3rem;
             margin: 30px 0;
             text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
         }
         
         .invitation-card {
-            background: rgba(255, 255, 255, 0.98);
+            background: var(--card-bg);
             border-radius: 40px;
             box-shadow: 
                 0 40px 100px rgba(0, 0, 0, 0.5), 
@@ -141,7 +155,7 @@
             left: 0;
             width: 100%;
             height: 12px;
-            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe, #667eea);
+            background: var(--gradient-primary);
         }
         
         .header {
@@ -152,7 +166,7 @@
         
         .header h1 {
             font-size: 3.5rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #667eea 100%);
+            background: var(--gradient-secondary);
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -166,7 +180,7 @@
         
         .header p {
             font-size: 1.5rem;
-            color: #666;
+            color: var(--text-light);
             font-weight: 400;
             animation: fade-in-up 1s ease-out;
         }
@@ -184,6 +198,7 @@
             flex-wrap: wrap;
             position: relative;
             z-index: 2;
+            gap: 30px;
         }
         
         .photo-container {
@@ -250,7 +265,7 @@
         }
         
         .graduate-info h2 {
-            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            background: var(--gradient-secondary);
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -273,7 +288,7 @@
             align-items: center;
             position: relative;
             z-index: 1;
-            color: #333;
+            color: var(--text-dark);
             font-weight: 500;
         }
         
@@ -294,6 +309,7 @@
             margin: 50px 0;
             position: relative;
             z-index: 2;
+            gap: 20px;
         }
         
         .detail-box {
@@ -301,7 +317,7 @@
             min-width: 220px;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
             padding: 35px;
-            margin: 15px;
+            margin: 0;
             border-radius: 30px;
             box-shadow: 
                 0 20px 60px rgba(0, 0, 0, 0.2), 
@@ -412,12 +428,12 @@
         
         .btn-accept {
             background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
+            color: var(--white);
         }
         
         .btn-decline {
             background: linear-gradient(135deg, #f093fb, #f5576c);
-            color: white;
+            color: var(--white);
         }
         
         .message {
@@ -452,11 +468,11 @@
             position: fixed;
             width: 4px;
             height: 4px;
-            background: white;
+            background: var(--white);
             border-radius: 50%;
             pointer-events: none;
             z-index: 10;
-            box-shadow: 0 0 15px white, 0 0 30px white, 0 0 45px rgba(102, 126, 234, 0.8);
+            box-shadow: 0 0 15px var(--white), 0 0 30px var(--white), 0 0 45px rgba(102, 126, 234, 0.8);
             animation: sparkle 2s ease-out forwards;
         }
         
@@ -479,7 +495,7 @@
             position: fixed;
             width: 6px;
             height: 6px;
-            background: white;
+            background: var(--white);
             border-radius: 50%;
             pointer-events: none;
             z-index: 1;
@@ -504,6 +520,165 @@
             }
         }
         
+        /* Các cải tiến mới */
+        .decoration-corner {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            z-index: 1;
+        }
+        
+        .corner-top-left {
+            top: 0;
+            left: 0;
+            background: radial-gradient(circle at top left, rgba(102, 126, 234, 0.2), transparent 70%);
+        }
+        
+        .corner-top-right {
+            top: 0;
+            right: 0;
+            background: radial-gradient(circle at top right, rgba(240, 147, 251, 0.2), transparent 70%);
+        }
+        
+        .corner-bottom-left {
+            bottom: 0;
+            left: 0;
+            background: radial-gradient(circle at bottom left, rgba(79, 172, 254, 0.2), transparent 70%);
+        }
+        
+        .corner-bottom-right {
+            bottom: 0;
+            right: 0;
+            background: radial-gradient(circle at bottom right, rgba(245, 87, 108, 0.2), transparent 70%);
+        }
+        
+        .floating-element {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            opacity: 0.1;
+            z-index: 0;
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+        
+        .floating-element:nth-child(2) {
+            top: 20%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        
+        .floating-element:nth-child(3) {
+            bottom: 15%;
+            left: 15%;
+            animation-delay: 4s;
+        }
+        
+        .floating-element:nth-child(4) {
+            bottom: 25%;
+            right: 5%;
+            animation-delay: 6s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            33% {
+                transform: translateY(-20px) rotate(120deg);
+            }
+            66% {
+                transform: translateY(10px) rotate(240deg);
+            }
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            border-radius: 15px;
+            padding: 15px;
+            min-width: 80px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+        
+        .map-container {
+            margin: 30px 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            position: relative;
+            height: 250px;
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            font-size: 1.2rem;
+        }
+        
+        .badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            z-index: 3;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(102, 126, 234, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(102, 126, 234, 0);
+            }
+        }
+        
+        /* Responsive improvements */
         @media (max-width: 1100px) {
             .banner-left, .banner-right {
                 width: 100px;
@@ -517,6 +692,25 @@
             .banner-icon {
                 font-size: 2.5rem;
             }
+            
+            .header h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .graduate-section {
+                flex-direction: column;
+            }
+            
+            .photo-frame {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .graduate-info {
+                width: 100%;
+            }
         }
         
         @media (max-width: 768px) {
@@ -525,11 +719,25 @@
             }
             
             .invitation-card {
-                padding: 40px 30px;
+                padding: 40px 25px;
+                border-radius: 30px;
             }
             
-            .graduate-section {
-                flex-direction: column;
+            .header h1 {
+                font-size: 2.2rem;
+                letter-spacing: 3px;
+            }
+            
+            .header p {
+                font-size: 1.2rem;
+            }
+            
+            .graduate-info h2 {
+                font-size: 2rem;
+            }
+            
+            .graduate-info p {
+                font-size: 1.1rem;
             }
             
             .event-details {
@@ -540,24 +748,84 @@
                 min-width: 100%;
             }
             
-            .header h1 {
-                font-size: 2.5rem;
-                letter-spacing: 3px;
-            }
-            
             .rsvp-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 15px;
             }
             
             .btn {
-                width: 90%;
+                width: 100%;
+                max-width: 300px;
                 justify-content: center;
+                padding: 18px 30px;
+            }
+            
+            .message {
+                font-size: 1.1rem;
+                padding: 20px;
+            }
+            
+            .countdown-item {
+                min-width: 60px;
+                padding: 10px;
+            }
+            
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+            
+            .footer {
+                font-size: 0.95rem;
+            }
+            
+            .badge {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin-bottom: 20px;
+                display: inline-block;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .invitation-card {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+                letter-spacing: 2px;
             }
             
             .photo-frame {
-                width: 280px;
-                height: 280px;
+                width: 220px;
+                height: 220px;
+            }
+            
+            .graduate-info {
+                padding: 25px;
+            }
+            
+            .graduate-info h2 {
+                font-size: 1.7rem;
+            }
+            
+            .rsvp-section {
+                padding: 25px;
+            }
+            
+            .detail-box {
+                padding: 25px;
+            }
+            
+            .detail-box h3 {
+                font-size: 1.5rem;
+            }
+            
+            .floating-element {
+                width: 50px;
+                height: 50px;
             }
         }
     </style>
@@ -587,15 +855,48 @@
 
     <div class="container">
         <div class="invitation-card">
+            <!-- Thêm các phần trang trí mới -->
+            <div class="decoration-corner corner-top-left"></div>
+            <div class="decoration-corner corner-top-right"></div>
+            <div class="decoration-corner corner-bottom-left"></div>
+            <div class="decoration-corner corner-bottom-right"></div>
+            
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            
+            <div class="badge">Sự kiện quan trọng</div>
+            
             <div class="header">
                 <h1>Thư Mời Dự Lễ Tốt Nghiệp</h1>
                 <p>Trân trọng kính mời quý vị đến tham dự</p>
+                
+                <!-- Đếm ngược thời gian -->
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Ngày</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Giờ</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Phút</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Giây</div>
+                    </div>
+                </div>
             </div>
             
             <div class="graduate-section">
                 <div class="photo-container">
                     <div class="photo-frame">
-            <img src="/image/DH52110556.jpg" alt="Ảnh tốt nghiệp" class="graduate-photo">
+                        <img src="/image/DH52110556.jpg" alt="Ảnh tốt nghiệp" class="graduate-photo">
                     </div>
                 </div>
                 
@@ -604,6 +905,15 @@
                     <p><i class="fas fa-user-graduate"></i> Cử nhân ngành Công nghệ Thông tin</p>
                     <p><i class="fas fa-university"></i> Trường Đại học Công nghệ Sài Gòn</p>
                     <p><i class="fas fa-award"></i> Loại tốt nghiệp: Khá</p>
+                    <p><i class="fas fa-calendar-alt"></i> Ngày tốt nghiệp: 14/11/2025</p>
+                </div>
+            </div>
+            
+            <!-- Thêm bản đồ -->
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt" style="margin-right: 10px;"></i>
+                    Bản đồ đến Trường Đại học Công nghệ Sài Gòn
                 </div>
             </div>
             
@@ -645,7 +955,7 @@
     </div>
 
     <script>
-        // Tạo particles nền (giảm số lượng xuống 15 để nhẹ hơn)
+        // Tạo particles nền
         function createParticles() {
             for (let i = 0; i < 15; i++) {
                 const particle = document.createElement('div');
@@ -661,11 +971,11 @@
             }
         }
         
-        // Tạo hiệu ứng confetti (chỉ khi cần, giảm số lượng)
+        // Tạo hiệu ứng confetti
         function createConfetti() {
             const colors = ['#667eea', '#764ba2', '#f093fb', '#f5576c', '#4facfe', '#00f2fe'];
             
-            for (let i = 0; i < 50; i++) {  // Giảm từ 100 xuống 50
+            for (let i = 0; i < 50; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
                 confetti.style.left = Math.random() * 100 + 'vw';
@@ -682,7 +992,32 @@
             }
         }
         
-        // Giảm tần suất sparkle (chỉ 50% thay vì 85%)
+        // Đếm ngược thời gian
+        function updateCountdown() {
+            const targetDate = new Date('November 14, 2025 08:00:00').getTime();
+            const now = new Date().getTime();
+            const timeLeft = targetDate - now;
+            
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days < 10 ? '0' + days : days;
+            document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+            
+            if (timeLeft < 0) {
+                clearInterval(countdownInterval);
+                document.querySelector('.countdown').innerHTML = "<p>Sự kiện đã diễn ra!</p>";
+            }
+        }
+        
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Hiệu ứng sparkle khi di chuột
         document.addEventListener('mousemove', function(e) {
             if (Math.random() > 0.5) {
                 const sparkle = document.createElement('div');
@@ -701,13 +1036,13 @@
             }
         });
         
-        // Hiệu ứng khi click vào buttons (giữ confetti nhưng nhẹ hơn)
+        // Hiệu ứng khi click vào buttons
         const buttons = document.querySelectorAll('.btn');
         buttons.forEach(btn => {
             btn.addEventListener('click', function(e) {
                 createConfetti();
                 
-                // Tạo hiệu ứng ripple đơn giản
+                // Tạo hiệu ứng ripple
                 const ripple = document.createElement('div');
                 ripple.style.position = 'absolute';
                 ripple.style.borderRadius = '50%';
@@ -753,26 +1088,14 @@
         `;
         document.head.appendChild(style);
         
-        // Tạo particles khi trang được tải (không tạo confetti tự động)
+        // Tạo particles khi trang được tải
         window.addEventListener('load', function() {
             createParticles();
         });
         
-        // Loại bỏ confetti khi click card (để tránh spam)
-        // document.querySelector('.invitation-card').addEventListener('click', function(e) {
-        //     if (!e.target.closest('.btn')) {
-        //         createConfetti();
-        //     }
-        // });
-        
-        // Loại bỏ parallax rotate (gây chóng mặt)
-        // document.addEventListener('mousemove', function(e) { ... });
-        // document.querySelector('.invitation-card').addEventListener('mouseleave', function() { ... });
-        
-        // Giảm hiệu ứng hover cho ảnh (chỉ scale nhẹ)
+        // Hiệu ứng hover cho ảnh
         const photoFrame = document.querySelector('.photo-frame');
         photoFrame.addEventListener('mouseenter', function() {
-            // Giảm số sparkle từ 20 xuống 8, và chậm hơn
             for (let i = 0; i < 8; i++) {
                 setTimeout(() => {
                     const sparkle = document.createElement('div');
@@ -783,7 +1106,7 @@
                     document.body.appendChild(sparkle);
                     
                     setTimeout(() => sparkle.remove(), 2000);
-                }, i * 100);  // Tăng delay từ 50ms lên 100ms
+                }, i * 100);
             }
         });
     </script>
